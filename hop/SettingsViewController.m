@@ -7,6 +7,8 @@
 //
 
 #import "SettingsViewController.h"
+#import "LoginViewController.h"
+
 @interface SettingsViewController()
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 
@@ -17,8 +19,9 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    UIImage *image =[UIImage imageNamed:@"settings_filled-32.png"];
+    UIImage *image =[UIImage imageNamed:@"settings3-32.png"];
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:image tag:1];
+    self.loginButton.delegate = self;
 }
 
 -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
@@ -26,6 +29,9 @@
 }
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
-    NSLog(@"");
+    //Go back to the first loginViewController
+    self.loginButton.hidden = YES;
+    LoginViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+    [self presentViewController:loginViewController animated:YES completion:^(void){}];
 }
 @end

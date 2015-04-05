@@ -10,6 +10,6 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <FBSDKLoginButtonDelegate>
 
 @end

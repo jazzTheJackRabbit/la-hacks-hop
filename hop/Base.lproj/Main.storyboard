@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BQX-p0-wGP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9ft-pT-VCG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -16,35 +16,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSw-zI-j1C" customClass="GMSMapView">
-                                <rect key="frame" x="16" y="72" width="736" height="932"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BC1-yd-20L">
+                                <rect key="frame" x="300" y="465" width="100" height="100"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="c2N-KH-zia">
+                                        <rect key="frame" x="40" y="40" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7V-aK-mnN" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="768" height="919"/>
+                                <color key="backgroundColor" red="0.42745098040000001" green="0.51764705879999995" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="qSw-zI-j1C" secondAttribute="centerY" id="THQ-gR-Wfa"/>
-                            <constraint firstAttribute="centerX" secondItem="qSw-zI-j1C" secondAttribute="centerX" id="pfn-eN-DrW"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="THQ-gR-Wfa"/>
-                                <exclude reference="pfn-eN-DrW"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ATy-xX-Pyz"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map_marker-32.png" selectedImage="map_marker-32.png" id="ATy-xX-Pyz"/>
                     <navigationItem key="navigationItem" id="fDr-RB-oyB"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
-                        <outlet property="mapView" destination="qSw-zI-j1C" id="crV-pg-OMv"/>
+                        <outlet property="activitiyIndicatorView" destination="BC1-yd-20L" id="80u-xL-Tyk"/>
+                        <outlet property="activityIndicator" destination="c2N-KH-zia" id="aWL-av-hza"/>
+                        <outlet property="mapView" destination="F7V-aK-mnN" id="nps-GJ-0ai"/>
+                        <outlet property="viewForMap" destination="F7V-aK-mnN" id="dCp-b2-3e2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044" y="-65"/>
+            <point key="canvasLocation" x="3044" y="-28"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="cFb-1B-Qg8">
             <objects>
                 <viewController id="PfE-bE-5Mh" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -57,17 +59,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-XQ-8Rd" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="100" y="488" width="568" height="47"/>
+                                <rect key="frame" x="100" y="818" width="568" height="47"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="b6n-XQ-8Rd" secondAttribute="centerY" id="8DU-uu-3Ug"/>
+                            <constraint firstItem="foW-IM-Nub" firstAttribute="top" secondItem="b6n-XQ-8Rd" secondAttribute="bottom" constant="100" id="gYt-HG-nr7"/>
                             <constraint firstAttribute="centerX" secondItem="b6n-XQ-8Rd" secondAttribute="centerX" id="rTn-RK-YaG"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8DU-uu-3Ug"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="90W-qr-lBA"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings3-32.png" selectedImage="settings3_filled-32.png" id="90W-qr-lBA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="loginButton" destination="b6n-XQ-8Rd" id="3kd-OC-lUx"/>
@@ -98,7 +106,7 @@
         <!--Login View Controller-->
         <scene sceneID="Pve-d2-7WZ">
             <objects>
-                <viewController id="9ft-pT-VCG" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="9ft-pT-VCG" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c53-kW-3wd"/>
                         <viewControllerLayoutGuide type="bottom" id="Yf6-Q1-1eo"/>
@@ -108,15 +116,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hax-yC-UJd" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="16" y="276" width="568" height="47"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="xc9-wt-zAO">
+                                <rect key="frame" x="150" y="50" width="300" height="300"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hop" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzV-Fb-I34">
+                                <rect key="frame" x="269" y="355" width="62" height="43.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="37"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The best way to meet new people in real time." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oi-vN-cnC">
+                                <rect key="frame" x="82" y="408.5" width="436" height="21"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="18"/>
+                                <color key="textColor" red="0.31372549019607843" green="0.43137254901960786" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="xc9-wt-zAO" secondAttribute="centerY" constant="100" id="6P4-z0-2Lh"/>
+                            <constraint firstItem="Yf6-Q1-1eo" firstAttribute="top" secondItem="hax-yC-UJd" secondAttribute="bottom" constant="100" id="ASz-P8-2xf"/>
+                            <constraint firstAttribute="centerX" secondItem="xc9-wt-zAO" secondAttribute="centerX" id="B46-uT-2aR"/>
+                            <constraint firstAttribute="centerX" secondItem="9Oi-vN-cnC" secondAttribute="centerX" id="Cgy-hm-HSB"/>
+                            <constraint firstItem="9Oi-vN-cnC" firstAttribute="top" secondItem="RzV-Fb-I34" secondAttribute="bottom" constant="10" id="RNi-C2-YEQ"/>
                             <constraint firstAttribute="centerX" secondItem="hax-yC-UJd" secondAttribute="centerX" id="TG4-xa-Bfr"/>
-                            <constraint firstAttribute="centerY" secondItem="hax-yC-UJd" secondAttribute="centerY" id="akr-aV-fpp"/>
+                            <constraint firstAttribute="centerX" secondItem="RzV-Fb-I34" secondAttribute="centerX" id="VyK-dC-huG"/>
+                            <constraint firstItem="RzV-Fb-I34" firstAttribute="top" secondItem="xc9-wt-zAO" secondAttribute="bottom" constant="5" id="Ywv-MG-J3A"/>
+                            <constraint firstItem="RzV-Fb-I34" firstAttribute="top" secondItem="9Oi-vN-cnC" secondAttribute="bottom" constant="-70" id="yPm-fl-Dub"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yPm-fl-Dub"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="hax-yC-UJd" id="kTA-4b-xhW"/>
@@ -124,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8e-kU-Q6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="-429"/>
+            <point key="canvasLocation" x="1085" y="-445"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ahD-Sj-wW5">
@@ -144,12 +178,12 @@
             </objects>
             <point key="canvasLocation" x="1136" y="339"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Hop-->
         <scene sceneID="gDc-gm-uSQ">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="beQ-D3-Wcc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Mcx-1T-XAy"/>
+                    <navigationItem key="navigationItem" title="Hop" id="Mcx-1T-XAy"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="TEr-YF-N9S">
                         <autoresizingMask key="autoresizingMask"/>
@@ -165,4 +199,10 @@
             <point key="canvasLocation" x="2122" y="345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="appicon.png" width="300" height="300"/>
+        <image name="map_marker-32.png" width="32" height="32"/>
+        <image name="settings3-32.png" width="32" height="32"/>
+        <image name="settings3_filled-32.png" width="32" height="32"/>
+    </resources>
 </document>

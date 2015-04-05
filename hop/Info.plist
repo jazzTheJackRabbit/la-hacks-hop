@@ -47,6 +47,8 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Simply</string>
+	<key>NSLocationWhenAlwaysUsageDescription - 2</key>
+	<string>Simply</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

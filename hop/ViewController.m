@@ -7,15 +7,21 @@
 //
 
 #import "ViewController.h"
+#import "RP_EventModel.h"
+#import "CustomInfoMapWindowView.h"
 
 @interface ViewController()
 @property (nonatomic, strong) UISearchBar *mySearchBar;
 @property (nonatomic, strong) UITableView *myTableView;
 @property (nonatomic, strong) NSMutableArray *countryList;
 @property (nonatomic, strong) NSString *queryString;
-
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSMutableArray *eventArray;
+@property (nonatomic, strong) NSMutableArray *markerArray;
+@property (weak, nonatomic) IBOutlet UIView *activitiyIndicatorView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *viewForMap;
 
 @end
 
@@ -31,17 +37,21 @@
 #pragma mark DEFAULT SETUP
 //************************************************************
 
+@synthesize eventArray;
+@synthesize markerArray;
+
 -(void)viewDidLayoutSubviews{
     self.mapView.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 5, 0, self.bottomLayoutGuide.length + 5, 0);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIImage *image =[UIImage imageNamed:@"map_marker_filled-32.png"];
+//    self.activitiyIndicatorView.hidden = YES;
+    UIImage *image =[UIImage imageNamed:@"map_marker-32.png"];
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:image tag:0];
     [self setMapDeaults];
     [self setLocationManagerDefaults];
+    [self createSearchBar];
 }
 
 -(void)setMapDeaults{
@@ -56,18 +66,73 @@
     //set location Manager defaults for iOS 8
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [self.locationManager requestAlwaysAuthorization];
+    }
+    
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
     [self.locationManager startUpdatingLocation];
 }
 
+-(void)createSearchBar{
+//    create a search bar and add to the top of the screen
+    CGRect myFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y + 72,
+                                self.view.bounds.size.width, 44.0f);
+    self.mySearchBar = [[UISearchBar alloc] initWithFrame:myFrame];
+    //set the delegate to self so we can listen for events
+    self.mySearchBar.delegate = self;
+    //display the cancel button next to the search bar
+    self.mySearchBar.showsCancelButton = NO;
+    //add the search bar to the view
+    [self.view addSubview:self.mySearchBar];
+}
+
+-(GMSMarker *)createMapMarkerForLocation:(CLLocationCoordinate2D)location andTitle:(NSString *)title{
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = location;
+    marker.title = title;
+    marker.appearAnimation = kGMSMarkerAnimationPop;
+    marker.map = self.mapView;
+    [self.markerArray addObject:marker];
+    return marker;
+}
+
+-(void)createMarkersForAllEvents{
+    for (int i = 0 ; i < [self.eventArray count]; i++) {
+        RP_EventModel *eventModel = self.eventArray[i];
+        CLLocationCoordinate2D location = CLLocationCoordinate2DMake([eventModel.latitude doubleValue], [eventModel.longitude doubleValue]);
+        eventModel.marker = [self createMapMarkerForLocation:location andTitle:eventModel.eventTitle];
+    }
+
+    [self.mapView animateToZoom:11];
+}
+
+-(RP_EventModel *)findEventForMarker: (GMSMarker *) marker{
+    //search in self.eventsArray
+    for (int i = 0; i < [self.eventArray count]; i++) {
+        RP_EventModel *eventModel = self.eventArray[i];
+        if (marker == eventModel.marker) {
+            return eventModel;
+        }
+    }
+    return nil;
+}
+
+-(UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker{
+    CustomInfoMapWindowView *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"CustomInfoWindow" owner:self options:nil] objectAtIndex:0];
+    
+    RP_EventModel *eventModel = [self findEventForMarker:marker];
+    
+    infoWindow.groupOwner.text = eventModel.groupOwner;
+    infoWindow.numberOfPeopleInGroup.text = [NSString stringWithFormat: @"%d",[eventModel.numberOfPeopleInGroup intValue]];
+    infoWindow.locationTitle.text = eventModel.locationTitle;
+    
+    return infoWindow;
+}
 
 -(void)other{
-    //    GMSMarker *marker = [[GMSMarker alloc] init];
-    //    marker.position = CLLocationCoordinate2DMake(41.887, -87.622);
-    //    marker.appearAnimation = kGMSMarkerAnimationPop;
-    //    marker.map = self.mapView;
     
     //create a search bar and add to the top of the screen
     //    CGRect myFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y + 72,
@@ -108,11 +173,12 @@
 //search button was tapped
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self handleSearch:searchBar];
+    [self.view endEditing:YES];
 }
 
 //user finished editing the search text
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    [self handleSearch:searchBar];
+//    [self handleSearch:searchBar];
 }
 
 //do our search on the remote server using HTTP request
@@ -123,25 +189,23 @@
     self.queryString = searchBar.text;
     
     //setup the remote server URI
+    NSString *hostServerString = @"http://ec2-52-11-181-150.us-west-2.compute.amazonaws.com:8080/Hop/suggest";
+    NSString *userQueryString = queryString;
+    NSString *latitudeString = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.latitude ];
+    NSString *longitudeString = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.longitude ];
+    NSString *rangeString = @"100";
     
-//    @"http://ec2-52-11-181-150.us-west-2.compute.amazonaws.com:8080/Hop/suggest?query=basketball&lat=34.068921&lng=-118.445181&range=100"
+    //TODO: Change the API call here for groups v/s events
+    NSString *urlString = [NSString stringWithFormat:@"%@?query=%@&lat=%@&lng=%@&range=%@",hostServerString,userQueryString,latitudeString,longitudeString,rangeString];
     
-    NSString *hostServer = @"http://demo.mysamplecode.com/Servlets_JSP/";
-    NSString *myUrlString = [NSString stringWithFormat:@"%@CountrySearch",hostServer];
-    
-    //pass the query String in the body of the HTTP post
-    NSString *body;
-    if(self.queryString){
-        body =  [NSString stringWithFormat:@"queryString=%@", self.queryString];
-    }
-    NSURL *myUrl = [NSURL URLWithString:myUrlString];
+    NSURL *url = [NSURL URLWithString:urlString];
     
     //make the HTTP request
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:myUrl];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setTimeoutInterval:60.0f];
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
-    
+    self.activitiyIndicatorView.hidden = NO;
+    [self.activityIndicator startAnimating];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [NSURLConnection
      sendAsynchronousRequest:urlRequest
@@ -151,6 +215,8 @@
                          NSError *error) {
          //we got something in reponse to our request lets go ahead and process this
          if ([data length] >0 && error == nil){
+//             self.activitiyIndicatorView.hidden = YES;
+//             [self.activityIndicator stopAnimating];
              [self parseResponse:data];
          }
          else if ([data length] == 0 && error == nil){
@@ -160,7 +226,6 @@
              NSLog(@"Not again, what is the error = %@", error);
          }
      }];
-    
 }
 
 //user tapped on the cancel button
@@ -236,6 +301,19 @@
 #pragma mark HELPERS
 //************************************************************
 
+-(void)createEventsArrayForJSONObject: (id)jsonObject{
+    NSArray *events = [jsonObject valueForKey:@"events"];
+    self.eventArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i<[events count]; i++) {
+        RP_EventModel *eventModel = [[RP_EventModel alloc] init];
+        eventModel.eventTitle = [events[i] valueForKey:@"name"];
+        eventModel.latitude = [events[i] valueForKey:@"lat"];
+        eventModel.longitude = [events[i] valueForKey:@"lng"];
+        [self.eventArray addObject: eventModel];
+    }
+    [self createMarkersForAllEvents];
+}
+
 //parse our JSON response from the server and load the NSMutableArray of countries
 - (void) parseResponse:(NSData *) data {
     
@@ -244,25 +322,11 @@
     NSLog(@"JSON data = %@", myData);
     NSError *error = nil;
     
-    id jsonObject = [NSJSONSerialization
-                     JSONObjectWithData:data
-                     options:NSJSONReadingAllowFragments
-                     error:&error];
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:data
+                                                    options:NSJSONReadingAllowFragments
+                                                      error:&error];
     if (jsonObject != nil && error == nil){
-        NSLog(@"Successfully deserialized...");
-        
-        NSNumber *success = [jsonObject objectForKey:@"success"];
-        if([success boolValue] == YES){
-            
-            self.countryList = [jsonObject objectForKey:@"countryList"];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.myTableView reloadData];
-            });
-        }
-        else {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
+        [self createEventsArrayForJSONObject:jsonObject];
     }
-    
 }
 @end

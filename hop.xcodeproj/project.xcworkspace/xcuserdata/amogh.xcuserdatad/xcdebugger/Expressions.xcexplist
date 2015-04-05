@@ -3,6 +3,28 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[LoginViewController viewDidAppear:]:LoginViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[FBSDKAccessToken currentAccessToken]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LoginViewController loginButton:didCompleteWithResult:error:]:LoginViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[FBSDKAccessToken currentAccessToken]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController createMarkersForAllEvents]:ViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__31-[ViewController handleSearch:]_block_invoke:ViewController.m">
+      </ContextState>
+      <ContextState
          contextName = "-[FacebookTest viewDidLoad]:FacebookTest.m">
          <PersistentStrings>
             <PersistentString
@@ -22,20 +44,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[LoginViewController loginButton:didCompleteWithResult:error:]:LoginViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[FBSDKProfile currentProfile]">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "-[ViewController handleSearch:]:ViewController.m">
       </ContextState>
       <ContextState
-         contextName = "-[LoginViewController viewDidAppear:]:LoginViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[FBSDKAccessToken currentAccessToken]">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "-[ViewController parseResponse:]:ViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController createEventsArrayForJSONObject:]:ViewController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

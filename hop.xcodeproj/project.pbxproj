@@ -13,17 +13,23 @@
 		CA7F59D51AD07FE90009E5A5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59D41AD07FE90009E5A5 /* SettingsViewController.m */; };
 		CA7F59D71AD082560009E5A5 /* settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59D61AD082560009E5A5 /* settings-50.png */; };
 		CA7F59D91AD082790009E5A5 /* groups_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59D81AD082790009E5A5 /* groups_filled-50.png */; };
-		CA7F59DB1AD083B80009E5A5 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59DA1AD083B80009E5A5 /* settings_filled-32.png */; };
 		CA7F59DD1AD084070009E5A5 /* map_marker_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59DC1AD084070009E5A5 /* map_marker_filled-32.png */; };
 		CA7F59E01AD086E80009E5A5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */; };
-		CA7F59E31AD09E6A0009E5A5 /* MapTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59E21AD09E6A0009E5A5 /* MapTestVC.m */; };
+		CA7F59E61AD0BE410009E5A5 /* RP_EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59E51AD0BE410009E5A5 /* RP_EventModel.m */; };
+		CA7F59E91AD0E2360009E5A5 /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59E81AD0E2360009E5A5 /* CustomInfoWindow.xib */; };
+		CA7F59EB1AD0E4A60009E5A5 /* ironman.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59EA1AD0E4A60009E5A5 /* ironman.png */; };
+		CA7F59EE1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59ED1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m */; };
+		CA7F59F21AD100BB0009E5A5 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59F11AD100BB0009E5A5 /* appicon.png */; };
+		CA7F59F41AD106730009E5A5 /* map_marker-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59F31AD106730009E5A5 /* map_marker-32.png */; };
+		CA7F59F71AD106850009E5A5 /* settings3_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59F51AD106850009E5A5 /* settings3_filled-32.png */; };
+		CA7F59F81AD106850009E5A5 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59F61AD106850009E5A5 /* settings3-32.png */; };
+		CA7F59FB1AD1125D0009E5A5 /* RP_GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59FA1AD1125D0009E5A5 /* RP_GroupModel.m */; };
 		CA9D16831ACFD83900DD00D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16821ACFD83900DD00D1 /* main.m */; };
 		CA9D16861ACFD83900DD00D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16851ACFD83900DD00D1 /* AppDelegate.m */; };
 		CA9D16891ACFD83900DD00D1 /* hop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16871ACFD83900DD00D1 /* hop.xcdatamodeld */; };
 		CA9D168C1ACFD83900DD00D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D168B1ACFD83900DD00D1 /* ViewController.m */; };
 		CA9D168F1ACFD83900DD00D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9D168D1ACFD83900DD00D1 /* Main.storyboard */; };
 		CA9D16911ACFD83900DD00D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA9D16901ACFD83900DD00D1 /* Images.xcassets */; };
-		CA9D16941ACFD83900DD00D1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA9D16921ACFD83900DD00D1 /* LaunchScreen.xib */; };
 		CA9D16A01ACFD83900DD00D1 /* hopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D169F1ACFD83900DD00D1 /* hopTests.m */; };
 		CA9D16AA1ACFD8DC00DD00D1 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9D16A91ACFD8DC00DD00D1 /* GoogleMaps.framework */; };
 		CA9D16AC1ACFDADA00DD00D1 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CA9D16AB1ACFDADA00DD00D1 /* GoogleMaps.bundle */; };
@@ -60,12 +66,21 @@
 		CA7F59D41AD07FE90009E5A5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		CA7F59D61AD082560009E5A5 /* settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-50.png"; sourceTree = "<group>"; };
 		CA7F59D81AD082790009E5A5 /* groups_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "groups_filled-50.png"; sourceTree = "<group>"; };
-		CA7F59DA1AD083B80009E5A5 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
 		CA7F59DC1AD084070009E5A5 /* map_marker_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker_filled-32.png"; sourceTree = "<group>"; };
 		CA7F59DE1AD086E80009E5A5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		CA7F59E11AD09E6A0009E5A5 /* MapTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTestVC.h; sourceTree = "<group>"; };
-		CA7F59E21AD09E6A0009E5A5 /* MapTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTestVC.m; sourceTree = "<group>"; };
+		CA7F59E41AD0BE410009E5A5 /* RP_EventModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RP_EventModel.h; sourceTree = "<group>"; };
+		CA7F59E51AD0BE410009E5A5 /* RP_EventModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RP_EventModel.m; sourceTree = "<group>"; };
+		CA7F59E81AD0E2360009E5A5 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
+		CA7F59EA1AD0E4A60009E5A5 /* ironman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ironman.png; path = hop/ironman.png; sourceTree = "<group>"; };
+		CA7F59EC1AD0E5C60009E5A5 /* CustomInfoMapWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoMapWindowView.h; sourceTree = "<group>"; };
+		CA7F59ED1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoMapWindowView.m; sourceTree = "<group>"; };
+		CA7F59F11AD100BB0009E5A5 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
+		CA7F59F31AD106730009E5A5 /* map_marker-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker-32.png"; sourceTree = "<group>"; };
+		CA7F59F51AD106850009E5A5 /* settings3_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3_filled-32.png"; sourceTree = "<group>"; };
+		CA7F59F61AD106850009E5A5 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
+		CA7F59F91AD1125D0009E5A5 /* RP_GroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RP_GroupModel.h; sourceTree = "<group>"; };
+		CA7F59FA1AD1125D0009E5A5 /* RP_GroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RP_GroupModel.m; sourceTree = "<group>"; };
 		CA9D167D1ACFD83900DD00D1 /* hop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9D16811ACFD83900DD00D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9D16821ACFD83900DD00D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,7 +91,6 @@
 		CA9D168B1ACFD83900DD00D1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CA9D168E1ACFD83900DD00D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA9D16901ACFD83900DD00D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CA9D16931ACFD83900DD00D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CA9D16991ACFD83900DD00D1 /* hopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9D169E1ACFD83900DD00D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9D169F1ACFD83900DD00D1 /* hopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hopTests.m; sourceTree = "<group>"; };
@@ -129,6 +143,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA7F59E71AD0BE450009E5A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA7F59F91AD1125D0009E5A5 /* RP_GroupModel.h */,
+				CA7F59FA1AD1125D0009E5A5 /* RP_GroupModel.m */,
+				CA7F59E41AD0BE410009E5A5 /* RP_EventModel.h */,
+				CA7F59E51AD0BE410009E5A5 /* RP_EventModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CA7F59EF1AD0E5CA0009E5A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA7F59E81AD0E2360009E5A5 /* CustomInfoWindow.xib */,
+				CA7F59EC1AD0E5C60009E5A5 /* CustomInfoMapWindowView.h */,
+				CA7F59ED1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CA7F59F01AD0E5DD0009E5A5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA7F59DE1AD086E80009E5A5 /* LoginViewController.h */,
+				CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */,
+				CA9D168A1ACFD83900DD00D1 /* ViewController.h */,
+				CA9D168B1ACFD83900DD00D1 /* ViewController.m */,
+				CA7F59D31AD07FE90009E5A5 /* SettingsViewController.h */,
+				CA7F59D41AD07FE90009E5A5 /* SettingsViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		CA9D16741ACFD83900DD00D1 = {
 			isa = PBXGroup;
 			children = (
@@ -150,16 +198,11 @@
 		CA9D167F1ACFD83900DD00D1 /* hop */ = {
 			isa = PBXGroup;
 			children = (
+				CA7F59E71AD0BE450009E5A5 /* Models */,
+				CA7F59EF1AD0E5CA0009E5A5 /* View */,
+				CA7F59F01AD0E5DD0009E5A5 /* View Controllers */,
 				CA9D16841ACFD83900DD00D1 /* AppDelegate.h */,
 				CA9D16851ACFD83900DD00D1 /* AppDelegate.m */,
-				CA9D168A1ACFD83900DD00D1 /* ViewController.h */,
-				CA9D168B1ACFD83900DD00D1 /* ViewController.m */,
-				CA7F59E11AD09E6A0009E5A5 /* MapTestVC.h */,
-				CA7F59E21AD09E6A0009E5A5 /* MapTestVC.m */,
-				CA7F59DE1AD086E80009E5A5 /* LoginViewController.h */,
-				CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */,
-				CA7F59D31AD07FE90009E5A5 /* SettingsViewController.h */,
-				CA7F59D41AD07FE90009E5A5 /* SettingsViewController.m */,
 				CA9D168D1ACFD83900DD00D1 /* Main.storyboard */,
 				CA7F59CA1AD022B80009E5A5 /* FacebookTest.h */,
 				CA7F59CB1AD022B80009E5A5 /* FacebookTest.m */,
@@ -225,11 +268,14 @@
 		CA9D16CA1ACFEC6A00DD00D1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				CA7F59F51AD106850009E5A5 /* settings3_filled-32.png */,
+				CA7F59F61AD106850009E5A5 /* settings3-32.png */,
+				CA7F59F11AD100BB0009E5A5 /* appicon.png */,
+				CA7F59EA1AD0E4A60009E5A5 /* ironman.png */,
+				CA7F59F31AD106730009E5A5 /* map_marker-32.png */,
 				CA7F59DC1AD084070009E5A5 /* map_marker_filled-32.png */,
-				CA7F59DA1AD083B80009E5A5 /* settings_filled-32.png */,
 				CA7F59D81AD082790009E5A5 /* groups_filled-50.png */,
 				CA7F59D61AD082560009E5A5 /* settings-50.png */,
-				CA9D16921ACFD83900DD00D1 /* LaunchScreen.xib */,
 			);
 			name = Assets;
 			path = ..;
@@ -321,14 +367,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7F59F81AD106850009E5A5 /* settings3-32.png in Resources */,
 				CA9D168F1ACFD83900DD00D1 /* Main.storyboard in Resources */,
+				CA7F59F21AD100BB0009E5A5 /* appicon.png in Resources */,
+				CA7F59F41AD106730009E5A5 /* map_marker-32.png in Resources */,
+				CA7F59F71AD106850009E5A5 /* settings3_filled-32.png in Resources */,
 				CA7F59D91AD082790009E5A5 /* groups_filled-50.png in Resources */,
-				CA9D16941ACFD83900DD00D1 /* LaunchScreen.xib in Resources */,
 				CA7F59DD1AD084070009E5A5 /* map_marker_filled-32.png in Resources */,
 				CA9D16911ACFD83900DD00D1 /* Images.xcassets in Resources */,
 				CA9D16AC1ACFDADA00DD00D1 /* GoogleMaps.bundle in Resources */,
 				CA7F59D71AD082560009E5A5 /* settings-50.png in Resources */,
-				CA7F59DB1AD083B80009E5A5 /* settings_filled-32.png in Resources */,
+				CA7F59E91AD0E2360009E5A5 /* CustomInfoWindow.xib in Resources */,
+				CA7F59EB1AD0E4A60009E5A5 /* ironman.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,12 +396,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7F59EE1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m in Sources */,
 				CA9D16891ACFD83900DD00D1 /* hop.xcdatamodeld in Sources */,
+				CA7F59E61AD0BE410009E5A5 /* RP_EventModel.m in Sources */,
 				CA9D16861ACFD83900DD00D1 /* AppDelegate.m in Sources */,
 				CA7F59CC1AD022B80009E5A5 /* FacebookTest.m in Sources */,
 				CA7F59D51AD07FE90009E5A5 /* SettingsViewController.m in Sources */,
 				CA7F59E01AD086E80009E5A5 /* LoginViewController.m in Sources */,
-				CA7F59E31AD09E6A0009E5A5 /* MapTestVC.m in Sources */,
+				CA7F59FB1AD1125D0009E5A5 /* RP_GroupModel.m in Sources */,
 				CA9D168C1ACFD83900DD00D1 /* ViewController.m in Sources */,
 				CA9D16831ACFD83900DD00D1 /* main.m in Sources */,
 			);
@@ -382,15 +434,6 @@
 				CA9D168E1ACFD83900DD00D1 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CA9D16921ACFD83900DD00D1 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA9D16931ACFD83900DD00D1 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = hop;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
