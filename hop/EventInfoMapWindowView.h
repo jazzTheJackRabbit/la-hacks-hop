@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *placeImage;
 @property (weak, nonatomic) IBOutlet UILabel *locationTitle;
 @property (weak, nonatomic) IBOutlet UILabel *message;
-@property (weak, nonatomic) IBOutlet UIButton *createButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *createButtonLabel;
 @end

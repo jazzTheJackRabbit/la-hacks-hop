@@ -13,6 +13,7 @@
 #import "EventInfoMapWindowView.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "TaskComplete.h"
 
 @interface ViewController()
 @property (nonatomic, strong) UISearchBar *mySearchBar;
@@ -27,6 +28,10 @@
 @property (weak, nonatomic) IBOutlet UIView *activitiyIndicatorView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *viewForMap;
+@property (nonatomic, strong) NSString *lastQuery;
+
+@property (nonatomic, strong) EventInfoMapWindowView *lastEventInforWindow;
+@property (nonatomic, strong) CustomInfoMapWindowView *lastGroupInforWindow;
 
 @end
 
@@ -38,6 +43,8 @@
 @synthesize countryList;
 @synthesize queryString;
 
+@synthesize lastEventInforWindow;
+@synthesize lastGroupInforWindow;
 //************************************************************
 #pragma mark DEFAULT SETUP
 //************************************************************
@@ -120,7 +127,6 @@
         CLLocationCoordinate2D location = CLLocationCoordinate2DMake([groupModel.latitude doubleValue], [groupModel.longitude doubleValue]);
         groupModel.marker = [self createMapMarkerForLocation:location andTitle:groupModel.eventTitle];
     }
-    
     [self.mapView animateToZoom:11];
 }
 
@@ -156,21 +162,106 @@
         //    infoWindow.groupOwner.text = eventModel.groupOwner;
         //    infoWindow.numberOfPeopleInGroup.text = [NSString stringWithFormat: @"%d",[eventModel.numberOfPeopleInGroup intValue]];
         infoWindow.locationTitle.text = eventModel.eventTitle;
-        
+        infoWindow.activityIndicator.hidden = YES;
+        self.lastEventInforWindow = infoWindow;
         return infoWindow;
     }
     else{
-        CustomInfoMapWindowView *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"CustomInfoWindow" owner:self options:nil] objectAtIndex:0];
+        CustomInfoMapWindowView *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"CustomInfoMapWindowView" owner:self options:nil] objectAtIndex:0];
         
         RP_GroupModel *groupModel = [self findGroupForMarker:marker];
         
-        infoWindow.groupOwner.text = groupModel.groupOwner;
-        infoWindow.numberOfPeopleInGroup.text = [NSString stringWithFormat: @"%d",[groupModel.numberOfPeopleInGroup intValue]];
-        infoWindow.locationTitle.text = groupModel.locationTitle;
+        if (groupModel) {
+            //If returned from API
+            infoWindow.groupOwner.text = groupModel.groupName?groupModel.groupName:@"A friend has a";
+            infoWindow.groupOwner.text = [infoWindow.groupOwner.text stringByAppendingString:@" group."];
+            infoWindow.numberOfPeopleInGroup.text = [NSString stringWithFormat: @"%d people in the group",[groupModel.numberOfPeopleInGroup intValue] + 1];
+            infoWindow.locationTitle.text = groupModel.locationTitle;
+        }
+        else{
+            //Use marker
+            EventInfoMapWindowView *eventInfoWindow = [[[NSBundle mainBundle] loadNibNamed:@"EventInfoMapWindowView" owner:self options:nil] objectAtIndex:0];
+            eventInfoWindow.locationTitle.text = marker.title;
+            eventInfoWindow.activityIndicator.hidden = YES;
+            self.lastEventInforWindow = eventInfoWindow;
+            return eventInfoWindow;
+        }
         
+        self.lastGroupInforWindow = infoWindow;
         return infoWindow;
     }
     
+}
+
+-(void)mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate{
+    GMSGeocoder *geocoder = [GMSGeocoder geocoder];
+    [geocoder reverseGeocodeCoordinate:coordinate completionHandler:^(GMSReverseGeocodeResponse *response, NSError *error) {
+        GMSMarker *marker = [self createMapMarkerForLocation:coordinate andTitle: @""];
+        marker.title = response.firstResult.thoroughfare;
+    }];
+}
+
+-(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker{
+    //setup the remote server URI
+    NSString *hostServerString;
+    NSString *latitudeString;
+    NSString *longitudeString;
+    NSString *urlString;
+    NSURL *url;
+    
+    FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
+    
+    latitudeString = [NSString stringWithFormat:@"%f",marker.position.latitude ];
+    longitudeString = [NSString stringWithFormat:@"%f",marker.position.longitude ];
+    
+    if ([self findEventForMarker:marker]) {
+        //create group
+        RP_EventModel *eventModel = [self findEventForMarker:marker];
+        hostServerString = @"http://ec2-52-11-181-150.us-west-2.compute.amazonaws.com:8080/Hop/createGroup";
+        urlString = [NSString stringWithFormat:@"%@?GroupName=%@&Latitude=%@&Longitude=%@&Count=%@&HashTags=%@&FacebookId=%@&PlaceName=%@",hostServerString,@"Batmans",latitudeString,longitudeString,@"1",self.lastQuery,accessToken.userID,eventModel.eventTitle];
+    }
+    else if([self findGroupForMarker:marker]){
+        //join group
+        RP_GroupModel *groupModel = [self findGroupForMarker:marker];
+        hostServerString = @"http://ec2-52-11-181-150.us-west-2.compute.amazonaws.com:8080/Hop/addUser";
+        urlString = [NSString stringWithFormat:@"%@?groupId=%@&userId=%@", hostServerString, groupModel.groupId, accessToken.userID];
+    }
+    else{
+        hostServerString = @"http://ec2-52-11-181-150.us-west-2.compute.amazonaws.com:8080/Hop/createGroup";
+        urlString = [NSString stringWithFormat:@"%@?GroupName=%@&Latitude=%@&Longitude=%@&Count=%@&HashTags=%@&FacebookId=%@&PlaceName=%@",hostServerString,@"GenericGroup",latitudeString,longitudeString,@"1",@"college",accessToken.userID,[marker.title stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+    }
+    url = [NSURL URLWithString:urlString];
+    
+    //make the HTTP request
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest setTimeoutInterval:60.0f];
+    [urlRequest setHTTPMethod:@"POST"];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection
+     sendAsynchronousRequest:urlRequest
+     queue:queue
+     completionHandler:^(NSURLResponse *response,
+                         NSData *data,
+                         NSError *error) {
+         //we got something in reponse to our request lets go ahead and process this
+         if ([data length] >0 && error == nil){
+             [self parseResponse:data];
+             //change marker style
+         }
+         else if ([data length] == 0 && error == nil){
+             NSLog(@"Empty Response, not sure why?");
+         }
+         else if (error != nil){
+             NSLog(@"Not again, what is the error = %@", error);
+         }
+         
+         self.mapView.selectedMarker = nil;
+     }];
+}
+
+-(IBAction)createButtonTapped:(id)sender{
+    NSLog(@"");
 }
 
 -(void)other{
@@ -213,7 +304,7 @@
 
 //search button was tapped
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self handleSearch:searchBar typeOfSearch:@"suggest"];
+    [self handleSearch:searchBar typeOfSearch:@"findGroups"];
     [self.view endEditing:YES];
 }
 
@@ -226,8 +317,14 @@
 - (void)handleSearch:(UISearchBar *)searchBar typeOfSearch:(NSString *)type{
     
     //check what was passed as the query String and get rid of the keyboard
-    NSLog(@"User searched for %@", searchBar.text);
-    self.queryString = searchBar.text;
+    if(searchBar){
+        NSLog(@"User searched for %@", searchBar.text);
+        self.queryString = searchBar.text;
+        self.lastQuery = self.queryString;
+    }
+    else{
+        self.queryString = self.lastQuery;
+    }
     
     //setup the remote server URI
     NSString *hostServerString;
@@ -250,7 +347,7 @@
         urlString = [NSString stringWithFormat:@"%@?query=%@&lat=%@&lng=%@&range=%@",hostServerString,userQueryString,latitudeString,longitudeString,rangeString];
     }
     else if([type isEqualToString:@"findGroups"]){
-        hostServerString = @"http://ec2-52-11-181-150.us-west-2.compute.amazonaws.com:8080/Hop/findGroups";
+        hostServerString = @"http://ec2-52-11-181-150.us-west-2.compute.amazonaws.com:8080/Hop/findGroup";
         urlString = [NSString stringWithFormat:@"%@?UserId=%@&Query=%@&Lat=%@&Lon=%@&Radius=%@", hostServerString, accessToken.userID, userQueryString, latitudeString, longitudeString, rangeString];
     }
     else{
@@ -280,6 +377,7 @@
              [self parseResponse:data];
          }
          else if ([data length] == 0 && error == nil){
+             [self handleSearch:nil typeOfSearch:@"suggest"];
              NSLog(@"Empty Response, not sure why?");
          }
          else if (error != nil){
@@ -382,10 +480,19 @@
             groupModel.eventTitle = [groups[i] valueForKey:@"name"];
             groupModel.latitude = [groups[i] valueForKey:@"lat"];
             groupModel.longitude = [groups[i] valueForKey:@"lng"];
+            groupModel.groupId = [groups[i] valueForKey:@"groupId"];
             //TODO: add all the returned group specific stuff here.
             [self.groupArray addObject: groupModel];
         }
-        [self createMarkersForAllGroups];
+        if ([self.groupArray count] == 0) {
+            [self handleSearch:nil typeOfSearch:@"suggest"];
+        }
+        else{
+            [self createMarkersForAllGroups];
+        }
+    }
+    else{
+        //do nothing
     }
 }
 
@@ -400,7 +507,7 @@
     id jsonObject = [NSJSONSerialization JSONObjectWithData:data
                                                     options:NSJSONReadingAllowFragments
                                                       error:&error];
-    if (jsonObject != nil && error == nil){
+    if (jsonObject != nil && error == nil && [[jsonObject allKeys] count] > 0){
         [self createEventsArrayForJSONObject:jsonObject];
     }
 }

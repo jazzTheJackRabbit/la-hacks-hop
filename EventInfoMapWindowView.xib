@@ -13,15 +13,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QJ7-u7-oEa">
                     <rect key="frame" x="37" y="12" width="150" height="80"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1t6-Q8-tmQ">
-                    <rect key="frame" x="8" y="176" width="209" height="37"/>
-                    <color key="backgroundColor" red="0.45098039220000002" green="0.7725490196" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
-                    <state key="normal" title="Create">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bel Air Bar &amp; Grill Bel Air Bar &amp; Grill Bel Air Bar &amp; Grill" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJA-sM-Zdc">
                     <rect key="frame" x="8" y="100" width="209" height="34"/>
                     <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="14"/>
@@ -34,11 +25,22 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swv-wr-nWz">
+                    <rect key="frame" x="8" y="181" width="209" height="32"/>
+                    <color key="backgroundColor" red="0.45098039220000002" green="0.7725490196" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gV9-c6-sXc">
+                    <rect key="frame" x="185" y="187" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="createButton" destination="1t6-Q8-tmQ" id="4Ac-Ob-fPb"/>
+                <outlet property="activityIndicator" destination="gV9-c6-sXc" id="IbA-DK-2Ef"/>
+                <outlet property="createButtonLabel" destination="swv-wr-nWz" id="ttW-YP-OpZ"/>
                 <outlet property="locationTitle" destination="FJA-sM-Zdc" id="hKB-xs-2fu"/>
                 <outlet property="message" destination="Cjy-nn-UAh" id="jdT-0C-wsT"/>
                 <outlet property="placeImage" destination="QJ7-u7-oEa" id="dbk-2J-C3x"/>

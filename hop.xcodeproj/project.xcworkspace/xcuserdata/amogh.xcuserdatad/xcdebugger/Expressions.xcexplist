@@ -3,29 +3,33 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[LoginViewController viewDidAppear:]:LoginViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[FBSDKAccessToken currentAccessToken]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[LoginViewController loginButton:didCompleteWithResult:error:]:LoginViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[FBSDKAccessToken currentAccessToken]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[ViewController createMarkersForAllEvents]:ViewController.m">
+         contextName = "__45-[ViewController mapView:didTapAtCoordinate:]_block_invoke:ViewController.m">
       </ContextState>
       <ContextState
          contextName = "__31-[ViewController handleSearch:]_block_invoke:ViewController.m">
       </ContextState>
       <ContextState
+         contextName = "-[ViewController handleSearch:]:ViewController.m">
+      </ContextState>
+      <ContextState
          contextName = "-[FacebookTest viewDidLoad]:FacebookTest.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[FBSDKAccessToken currentAccessToken]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController createEventsArrayForJSONObject:]:ViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController mapView:markerInfoWindow:]:ViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController createMapMarkerForLocation:andTitle:]:ViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LoginViewController viewDidAppear:]:LoginViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "[FBSDKAccessToken currentAccessToken]">
@@ -44,13 +48,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[ViewController handleSearch:]:ViewController.m">
+         contextName = "-[ViewController createMarkersForAllEvents]:ViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LoginViewController loginButton:didCompleteWithResult:error:]:LoginViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[FBSDKAccessToken currentAccessToken]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[ViewController parseResponse:]:ViewController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[ViewController createEventsArrayForJSONObject:]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "(BOOL)[jsonObject class]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

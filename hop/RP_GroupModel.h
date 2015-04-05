@@ -15,7 +15,9 @@
 @property (nonatomic, strong) NSString *longitude;
 @property (nonatomic, strong) GMSMarker *marker;
 
+@property (strong, nonatomic) NSString *groupId;
 @property (strong, nonatomic) NSString *groupOwner;
+@property (strong, nonatomic) NSString *groupName;
 @property (strong, nonatomic) NSNumber *numberOfPeopleInGroup;
 @property (strong, nonatomic) NSString *locationTitle;
 @property (strong, nonatomic) NSArray *topicsBeingSpokenAbout;

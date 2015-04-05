@@ -27,6 +27,9 @@
 		CA7F59FF1AD1182F0009E5A5 /* bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59FE1AD1182F0009E5A5 /* bar.jpg */; };
 		CA7F5A051AD12B320009E5A5 /* EventInfoMapWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F5A041AD12B320009E5A5 /* EventInfoMapWindowView.m */; };
 		CA7F5A071AD12C490009E5A5 /* EventInfoMapWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F5A061AD12C490009E5A5 /* EventInfoMapWindowView.xib */; };
+		CA7F5A0B1AD1A5180009E5A5 /* TaskComplete.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F5A0A1AD1A5180009E5A5 /* TaskComplete.xib */; };
+		CA7F5A0D1AD1A56F0009E5A5 /* checkmark_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F5A0C1AD1A56F0009E5A5 /* checkmark_filled-50.png */; };
+		CA7F5A101AD1A5DC0009E5A5 /* TaskComplete.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F5A0F1AD1A5DC0009E5A5 /* TaskComplete.m */; };
 		CA9D16831ACFD83900DD00D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16821ACFD83900DD00D1 /* main.m */; };
 		CA9D16861ACFD83900DD00D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16851ACFD83900DD00D1 /* AppDelegate.m */; };
 		CA9D16891ACFD83900DD00D1 /* hop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16871ACFD83900DD00D1 /* hop.xcdatamodeld */; };
@@ -88,6 +91,10 @@
 		CA7F5A031AD12B320009E5A5 /* EventInfoMapWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventInfoMapWindowView.h; sourceTree = "<group>"; };
 		CA7F5A041AD12B320009E5A5 /* EventInfoMapWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventInfoMapWindowView.m; sourceTree = "<group>"; };
 		CA7F5A061AD12C490009E5A5 /* EventInfoMapWindowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventInfoMapWindowView.xib; path = ../EventInfoMapWindowView.xib; sourceTree = "<group>"; };
+		CA7F5A0A1AD1A5180009E5A5 /* TaskComplete.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TaskComplete.xib; path = ../TaskComplete.xib; sourceTree = "<group>"; };
+		CA7F5A0C1AD1A56F0009E5A5 /* checkmark_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark_filled-50.png"; sourceTree = "<group>"; };
+		CA7F5A0E1AD1A5DC0009E5A5 /* TaskComplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskComplete.h; sourceTree = "<group>"; };
+		CA7F5A0F1AD1A5DC0009E5A5 /* TaskComplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskComplete.m; sourceTree = "<group>"; };
 		CA9D167D1ACFD83900DD00D1 /* hop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9D16811ACFD83900DD00D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9D16821ACFD83900DD00D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -164,6 +171,9 @@
 		CA7F59EF1AD0E5CA0009E5A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CA7F5A0A1AD1A5180009E5A5 /* TaskComplete.xib */,
+				CA7F5A0E1AD1A5DC0009E5A5 /* TaskComplete.h */,
+				CA7F5A0F1AD1A5DC0009E5A5 /* TaskComplete.m */,
 				CA7F59E81AD0E2360009E5A5 /* CustomInfoMapWindowView.xib */,
 				CA7F5A061AD12C490009E5A5 /* EventInfoMapWindowView.xib */,
 				CA7F5A031AD12B320009E5A5 /* EventInfoMapWindowView.h */,
@@ -278,6 +288,7 @@
 		CA9D16CA1ACFEC6A00DD00D1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				CA7F5A0C1AD1A56F0009E5A5 /* checkmark_filled-50.png */,
 				CA7F59FE1AD1182F0009E5A5 /* bar.jpg */,
 				CA7F59F51AD106850009E5A5 /* settings3_filled-32.png */,
 				CA7F59F61AD106850009E5A5 /* settings3-32.png */,
@@ -380,7 +391,9 @@
 			files = (
 				CA7F5A071AD12C490009E5A5 /* EventInfoMapWindowView.xib in Resources */,
 				CA7F59F81AD106850009E5A5 /* settings3-32.png in Resources */,
+				CA7F5A0B1AD1A5180009E5A5 /* TaskComplete.xib in Resources */,
 				CA9D168F1ACFD83900DD00D1 /* Main.storyboard in Resources */,
+				CA7F5A0D1AD1A56F0009E5A5 /* checkmark_filled-50.png in Resources */,
 				CA7F59F21AD100BB0009E5A5 /* appicon.png in Resources */,
 				CA7F59F41AD106730009E5A5 /* map_marker-32.png in Resources */,
 				CA7F59F71AD106850009E5A5 /* settings3_filled-32.png in Resources */,
@@ -410,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA7F59EE1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m in Sources */,
+				CA7F5A101AD1A5DC0009E5A5 /* TaskComplete.m in Sources */,
 				CA9D16891ACFD83900DD00D1 /* hop.xcdatamodeld in Sources */,
 				CA7F59E61AD0BE410009E5A5 /* RP_EventModel.m in Sources */,
 				CA7F5A051AD12B320009E5A5 /* EventInfoMapWindowView.m in Sources */,

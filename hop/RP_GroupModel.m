@@ -14,6 +14,7 @@
 @synthesize longitude;
 @synthesize marker;
 
+@synthesize groupId;
 @synthesize groupOwner;
 @synthesize numberOfPeopleInGroup;
 @synthesize locationTitle;
@@ -24,6 +25,7 @@
     self.latitude = @"";
     self.longitude = @"";
     self.marker = nil;
+    self.groupId = @"";
     self.groupOwner = @"";
     self.numberOfPeopleInGroup = [NSNumber numberWithInt:0];
     self.locationTitle = @"";
