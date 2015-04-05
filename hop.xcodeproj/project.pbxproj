@@ -16,7 +16,7 @@
 		CA7F59DD1AD084070009E5A5 /* map_marker_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59DC1AD084070009E5A5 /* map_marker_filled-32.png */; };
 		CA7F59E01AD086E80009E5A5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */; };
 		CA7F59E61AD0BE410009E5A5 /* RP_EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59E51AD0BE410009E5A5 /* RP_EventModel.m */; };
-		CA7F59E91AD0E2360009E5A5 /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59E81AD0E2360009E5A5 /* CustomInfoWindow.xib */; };
+		CA7F59E91AD0E2360009E5A5 /* CustomInfoMapWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59E81AD0E2360009E5A5 /* CustomInfoMapWindowView.xib */; };
 		CA7F59EB1AD0E4A60009E5A5 /* ironman.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59EA1AD0E4A60009E5A5 /* ironman.png */; };
 		CA7F59EE1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59ED1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m */; };
 		CA7F59F21AD100BB0009E5A5 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59F11AD100BB0009E5A5 /* appicon.png */; };
@@ -24,6 +24,9 @@
 		CA7F59F71AD106850009E5A5 /* settings3_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59F51AD106850009E5A5 /* settings3_filled-32.png */; };
 		CA7F59F81AD106850009E5A5 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59F61AD106850009E5A5 /* settings3-32.png */; };
 		CA7F59FB1AD1125D0009E5A5 /* RP_GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59FA1AD1125D0009E5A5 /* RP_GroupModel.m */; };
+		CA7F59FF1AD1182F0009E5A5 /* bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59FE1AD1182F0009E5A5 /* bar.jpg */; };
+		CA7F5A051AD12B320009E5A5 /* EventInfoMapWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F5A041AD12B320009E5A5 /* EventInfoMapWindowView.m */; };
+		CA7F5A071AD12C490009E5A5 /* EventInfoMapWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F5A061AD12C490009E5A5 /* EventInfoMapWindowView.xib */; };
 		CA9D16831ACFD83900DD00D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16821ACFD83900DD00D1 /* main.m */; };
 		CA9D16861ACFD83900DD00D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16851ACFD83900DD00D1 /* AppDelegate.m */; };
 		CA9D16891ACFD83900DD00D1 /* hop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16871ACFD83900DD00D1 /* hop.xcdatamodeld */; };
@@ -71,7 +74,7 @@
 		CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CA7F59E41AD0BE410009E5A5 /* RP_EventModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RP_EventModel.h; sourceTree = "<group>"; };
 		CA7F59E51AD0BE410009E5A5 /* RP_EventModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RP_EventModel.m; sourceTree = "<group>"; };
-		CA7F59E81AD0E2360009E5A5 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
+		CA7F59E81AD0E2360009E5A5 /* CustomInfoMapWindowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoMapWindowView.xib; sourceTree = "<group>"; };
 		CA7F59EA1AD0E4A60009E5A5 /* ironman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ironman.png; path = hop/ironman.png; sourceTree = "<group>"; };
 		CA7F59EC1AD0E5C60009E5A5 /* CustomInfoMapWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoMapWindowView.h; sourceTree = "<group>"; };
 		CA7F59ED1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoMapWindowView.m; sourceTree = "<group>"; };
@@ -81,6 +84,10 @@
 		CA7F59F61AD106850009E5A5 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
 		CA7F59F91AD1125D0009E5A5 /* RP_GroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RP_GroupModel.h; sourceTree = "<group>"; };
 		CA7F59FA1AD1125D0009E5A5 /* RP_GroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RP_GroupModel.m; sourceTree = "<group>"; };
+		CA7F59FE1AD1182F0009E5A5 /* bar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bar.jpg; sourceTree = "<group>"; };
+		CA7F5A031AD12B320009E5A5 /* EventInfoMapWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventInfoMapWindowView.h; sourceTree = "<group>"; };
+		CA7F5A041AD12B320009E5A5 /* EventInfoMapWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventInfoMapWindowView.m; sourceTree = "<group>"; };
+		CA7F5A061AD12C490009E5A5 /* EventInfoMapWindowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventInfoMapWindowView.xib; path = ../EventInfoMapWindowView.xib; sourceTree = "<group>"; };
 		CA9D167D1ACFD83900DD00D1 /* hop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9D16811ACFD83900DD00D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9D16821ACFD83900DD00D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -157,7 +164,10 @@
 		CA7F59EF1AD0E5CA0009E5A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA7F59E81AD0E2360009E5A5 /* CustomInfoWindow.xib */,
+				CA7F59E81AD0E2360009E5A5 /* CustomInfoMapWindowView.xib */,
+				CA7F5A061AD12C490009E5A5 /* EventInfoMapWindowView.xib */,
+				CA7F5A031AD12B320009E5A5 /* EventInfoMapWindowView.h */,
+				CA7F5A041AD12B320009E5A5 /* EventInfoMapWindowView.m */,
 				CA7F59EC1AD0E5C60009E5A5 /* CustomInfoMapWindowView.h */,
 				CA7F59ED1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m */,
 			);
@@ -268,6 +278,7 @@
 		CA9D16CA1ACFEC6A00DD00D1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				CA7F59FE1AD1182F0009E5A5 /* bar.jpg */,
 				CA7F59F51AD106850009E5A5 /* settings3_filled-32.png */,
 				CA7F59F61AD106850009E5A5 /* settings3-32.png */,
 				CA7F59F11AD100BB0009E5A5 /* appicon.png */,
@@ -367,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7F5A071AD12C490009E5A5 /* EventInfoMapWindowView.xib in Resources */,
 				CA7F59F81AD106850009E5A5 /* settings3-32.png in Resources */,
 				CA9D168F1ACFD83900DD00D1 /* Main.storyboard in Resources */,
 				CA7F59F21AD100BB0009E5A5 /* appicon.png in Resources */,
@@ -377,7 +389,8 @@
 				CA9D16911ACFD83900DD00D1 /* Images.xcassets in Resources */,
 				CA9D16AC1ACFDADA00DD00D1 /* GoogleMaps.bundle in Resources */,
 				CA7F59D71AD082560009E5A5 /* settings-50.png in Resources */,
-				CA7F59E91AD0E2360009E5A5 /* CustomInfoWindow.xib in Resources */,
+				CA7F59E91AD0E2360009E5A5 /* CustomInfoMapWindowView.xib in Resources */,
+				CA7F59FF1AD1182F0009E5A5 /* bar.jpg in Resources */,
 				CA7F59EB1AD0E4A60009E5A5 /* ironman.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +412,7 @@
 				CA7F59EE1AD0E5C60009E5A5 /* CustomInfoMapWindowView.m in Sources */,
 				CA9D16891ACFD83900DD00D1 /* hop.xcdatamodeld in Sources */,
 				CA7F59E61AD0BE410009E5A5 /* RP_EventModel.m in Sources */,
+				CA7F5A051AD12B320009E5A5 /* EventInfoMapWindowView.m in Sources */,
 				CA9D16861ACFD83900DD00D1 /* AppDelegate.m in Sources */,
 				CA7F59CC1AD022B80009E5A5 /* FacebookTest.m in Sources */,
 				CA7F59D51AD07FE90009E5A5 /* SettingsViewController.m in Sources */,

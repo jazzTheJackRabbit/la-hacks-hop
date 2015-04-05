@@ -15,20 +15,11 @@
 @synthesize longitude;
 @synthesize marker;
 
-@synthesize groupOwner;
-@synthesize numberOfPeopleInGroup;
-@synthesize locationTitle;
-@synthesize topicsBeingSpokenAbout;
-
 -(instancetype)init{
     self.eventTitle = @"";
     self.latitude = @"";
     self.longitude = @"";
     self.marker = nil;
-    self.groupOwner = @"Sample Owner";
-    self.numberOfPeopleInGroup = [NSNumber numberWithInt:0];
-    self.locationTitle = @"Sample Location";
-    self.topicsBeingSpokenAbout = [[NSArray alloc] init];
     return self;
 }
 
