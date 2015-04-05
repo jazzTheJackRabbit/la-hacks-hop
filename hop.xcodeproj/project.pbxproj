@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA7F59C91AD01B9D0009E5A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F59C81AD01B9D0009E5A5 /* MapKit.framework */; };
 		CA7F59CC1AD022B80009E5A5 /* FacebookTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59CB1AD022B80009E5A5 /* FacebookTest.m */; };
 		CA7F59D01AD024E50009E5A5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F59CF1AD024E50009E5A5 /* FBSDKCoreKit.framework */; };
 		CA7F59D21AD026320009E5A5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F59D11AD026320009E5A5 /* FBSDKLoginKit.framework */; };
@@ -16,6 +15,8 @@
 		CA7F59D91AD082790009E5A5 /* groups_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59D81AD082790009E5A5 /* groups_filled-50.png */; };
 		CA7F59DB1AD083B80009E5A5 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59DA1AD083B80009E5A5 /* settings_filled-32.png */; };
 		CA7F59DD1AD084070009E5A5 /* map_marker_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7F59DC1AD084070009E5A5 /* map_marker_filled-32.png */; };
+		CA7F59E01AD086E80009E5A5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */; };
+		CA7F59E31AD09E6A0009E5A5 /* MapTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F59E21AD09E6A0009E5A5 /* MapTestVC.m */; };
 		CA9D16831ACFD83900DD00D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16821ACFD83900DD00D1 /* main.m */; };
 		CA9D16861ACFD83900DD00D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16851ACFD83900DD00D1 /* AppDelegate.m */; };
 		CA9D16891ACFD83900DD00D1 /* hop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA9D16871ACFD83900DD00D1 /* hop.xcdatamodeld */; };
@@ -51,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CA7F59C81AD01B9D0009E5A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CA7F59CA1AD022B80009E5A5 /* FacebookTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookTest.h; sourceTree = "<group>"; };
 		CA7F59CB1AD022B80009E5A5 /* FacebookTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookTest.m; sourceTree = "<group>"; };
 		CA7F59CF1AD024E50009E5A5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -62,6 +62,10 @@
 		CA7F59D81AD082790009E5A5 /* groups_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "groups_filled-50.png"; sourceTree = "<group>"; };
 		CA7F59DA1AD083B80009E5A5 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
 		CA7F59DC1AD084070009E5A5 /* map_marker_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker_filled-32.png"; sourceTree = "<group>"; };
+		CA7F59DE1AD086E80009E5A5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CA7F59E11AD09E6A0009E5A5 /* MapTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTestVC.h; sourceTree = "<group>"; };
+		CA7F59E21AD09E6A0009E5A5 /* MapTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTestVC.m; sourceTree = "<group>"; };
 		CA9D167D1ACFD83900DD00D1 /* hop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9D16811ACFD83900DD00D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9D16821ACFD83900DD00D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,7 +105,6 @@
 				CA9D16C21ACFDBBA00DD00D1 /* QuartzCore.framework in Frameworks */,
 				CA9D16C01ACFDBB300DD00D1 /* OpenGLES.framework in Frameworks */,
 				CA9D16BE1ACFDBAC00DD00D1 /* libz.dylib in Frameworks */,
-				CA7F59C91AD01B9D0009E5A5 /* MapKit.framework in Frameworks */,
 				CA9D16BC1ACFDBA500DD00D1 /* libicucore.dylib in Frameworks */,
 				CA9D16BA1ACFDB9600DD00D1 /* libc++.dylib in Frameworks */,
 				CA9D16B81ACFDB8D00DD00D1 /* ImageIO.framework in Frameworks */,
@@ -129,7 +132,6 @@
 		CA9D16741ACFD83900DD00D1 = {
 			isa = PBXGroup;
 			children = (
-				CA7F59C81AD01B9D0009E5A5 /* MapKit.framework */,
 				CA9D167F1ACFD83900DD00D1 /* hop */,
 				CA9D169C1ACFD83900DD00D1 /* hopTests */,
 				CA9D167E1ACFD83900DD00D1 /* Products */,
@@ -152,11 +154,15 @@
 				CA9D16851ACFD83900DD00D1 /* AppDelegate.m */,
 				CA9D168A1ACFD83900DD00D1 /* ViewController.h */,
 				CA9D168B1ACFD83900DD00D1 /* ViewController.m */,
-				CA7F59CA1AD022B80009E5A5 /* FacebookTest.h */,
-				CA7F59CB1AD022B80009E5A5 /* FacebookTest.m */,
+				CA7F59E11AD09E6A0009E5A5 /* MapTestVC.h */,
+				CA7F59E21AD09E6A0009E5A5 /* MapTestVC.m */,
+				CA7F59DE1AD086E80009E5A5 /* LoginViewController.h */,
+				CA7F59DF1AD086E80009E5A5 /* LoginViewController.m */,
 				CA7F59D31AD07FE90009E5A5 /* SettingsViewController.h */,
 				CA7F59D41AD07FE90009E5A5 /* SettingsViewController.m */,
 				CA9D168D1ACFD83900DD00D1 /* Main.storyboard */,
+				CA7F59CA1AD022B80009E5A5 /* FacebookTest.h */,
+				CA7F59CB1AD022B80009E5A5 /* FacebookTest.m */,
 				CA9D16901ACFD83900DD00D1 /* Images.xcassets */,
 				CA9D16871ACFD83900DD00D1 /* hop.xcdatamodeld */,
 				CA9D16CA1ACFEC6A00DD00D1 /* Assets */,
@@ -281,7 +287,7 @@
 						DevelopmentTeam = D38MYF3WSK;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -344,6 +350,8 @@
 				CA9D16861ACFD83900DD00D1 /* AppDelegate.m in Sources */,
 				CA7F59CC1AD022B80009E5A5 /* FacebookTest.m in Sources */,
 				CA7F59D51AD07FE90009E5A5 /* SettingsViewController.m in Sources */,
+				CA7F59E01AD086E80009E5A5 /* LoginViewController.m in Sources */,
+				CA7F59E31AD09E6A0009E5A5 /* MapTestVC.m in Sources */,
 				CA9D168C1ACFD83900DD00D1 /* ViewController.m in Sources */,
 				CA9D16831ACFD83900DD00D1 /* main.m in Sources */,
 			);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9ft-pT-VCG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BQX-p0-wGP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -55,19 +55,50 @@
                     <view key="view" contentMode="scaleToFill" id="C7J-IC-JD4">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-XQ-8Rd" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="100" y="488" width="568" height="47"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="b6n-XQ-8Rd" secondAttribute="centerY" id="8DU-uu-3Ug"/>
+                            <constraint firstAttribute="centerX" secondItem="b6n-XQ-8Rd" secondAttribute="centerX" id="rTn-RK-YaG"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="90W-qr-lBA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="loginButton" destination="b6n-XQ-8Rd" id="3kd-OC-lUx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xRg-nF-hAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3044" y="1129"/>
         </scene>
-        <!--Facebook Test-->
+        <!--Map TestVC-->
+        <scene sceneID="tnO-d2-daC">
+            <objects>
+                <viewController id="0WM-19-w9F" customClass="MapTestVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vjQ-mI-Thk"/>
+                        <viewControllerLayoutGuide type="bottom" id="LTl-zH-3yG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o28-b8-rHg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wzq-tK-KNT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="-1198"/>
+        </scene>
+        <!--Login View Controller-->
         <scene sceneID="Pve-d2-7WZ">
             <objects>
-                <viewController id="9ft-pT-VCG" customClass="FacebookTest" sceneMemberID="viewController">
+                <viewController id="9ft-pT-VCG" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c53-kW-3wd"/>
                         <viewControllerLayoutGuide type="bottom" id="Yf6-Q1-1eo"/>
@@ -77,8 +108,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hax-yC-UJd" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="195" y="276" width="211" height="47"/>
-                                <color key="backgroundColor" red="0.0" green="0.60784313729999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="16" y="276" width="568" height="47"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

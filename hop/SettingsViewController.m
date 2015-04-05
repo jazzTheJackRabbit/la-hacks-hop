@@ -7,6 +7,11 @@
 //
 
 #import "SettingsViewController.h"
+@interface SettingsViewController()
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+
+@end
+
 
 @implementation SettingsViewController
 
@@ -16,4 +21,11 @@
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:image tag:1];
 }
 
+-(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+    NSLog(@"%@",result);
+}
+
+-(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+    NSLog(@"");
+}
 @end

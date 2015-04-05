@@ -10,5 +10,32 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[LoginViewController viewDidLoad]:LoginViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[FBSDKProfile userID]">
+            </PersistentString>
+            <PersistentString
+               value = "[FBSDKAccessToken currentAccessToken]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LoginViewController loginButton:didCompleteWithResult:error:]:LoginViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[FBSDKProfile currentProfile]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LoginViewController viewDidAppear:]:LoginViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[FBSDKAccessToken currentAccessToken]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

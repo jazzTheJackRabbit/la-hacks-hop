@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.h
+//  LoginViewController.h
 //  hop
 //
 //  Created by Amogh Param on 4/4/15.
@@ -10,6 +10,6 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface SettingsViewController : UIViewController
-
+@interface LoginViewController : UIViewController <FBSDKLoginButtonDelegate>
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 @end
